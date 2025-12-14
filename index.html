@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="このサイトは役に立たない製品を製造する企業のホームページです。" />
+  <link rel="icon" href="https://item-shopping.c.yimg.jp/i/n/restt_rogo-00164" sizes="16×16" type="image/png" />  
+  <title>スターコーポレーション公式サイト</title>
+  <meta property="og:url" content ="https://starcorperation.w3spaces.com/newstar.html" />
+  <meta property="og:title" content="スターコーポレーション公式ホームページ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="役に立たない製品を作る会社、スターコーポレーション。" />
+  <meta property="og.image" content="https://item-shopping.c.yimg.jp/i/n/restt_rogo-00164" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:site_name" content="スターコーポレーション公式サイト" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <style>
+
+ /* --- トップへ戻るボタン（光る＋浮遊＋フェードイン＋脈動） --- */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.1);
+    color: black;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.3s ease;
+
+    /* 浮遊アニメーション */
+    animation: floatUpDown 3.2s ease-in-out infinite,
+               pulseGlow 2.4s ease-in-out infinite;  /* ← ★追加 */
+    z-index: 999;
+}
+
+/* ホバー時：強めの光 */
+#backToTop:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 12px #81d5ff, 0 0 28px rgba(129,213,255,0.7);
+}
+
+/* 出現アニメ */
+#backToTop.show {
+    display: block;
+    opacity: 1;
+}
+
+/* 上下に浮遊 */
+@keyframes floatUpDown {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-7px); }
+    100% { transform: translateY(0); }
+}
+
+/* ★ 光がゆっくり脈打つアニメーション */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 4px rgba(129,213,255,0.2), 0 0 12px rgba(129,213,255,0.15);
+    }
+    50% {
+        box-shadow: 0 0 14px rgba(129,213,255,0.55), 0 0 28px rgba(129,213,255,0.4);
+    }
+    100% {
+        box-shadow: 0 0 4px rgba(129,213,255,0.2), 0 0 12px rgba(129,213,255,0.15);
+    }
+}
+
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      background: #FFFFFF;
+      color: #000;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;  
+    }
+
+    header h1 {
+      font-size: 1.0rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+            .hero {
+           color:white; 
+           height: 80vh;
+           background: url("https://tokidokiame.com/galleryhouse/wp-content/uploads/2024/02/tech10.jpg") center/cover no-repeat;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           text-align: center;
+           padding: 30px;
+       }
+       .hero h2 {
+           font-size: 2.4rem;
+           margin-bottom: 10px;
+           text-shadow: 0px 0px 12px rgba(255,255,255,0.6);
+       }
+       .hero p {
+           opacity: 0.8;
+           font-size: 1.2rem;
+       }
+
+       section {
+           padding: 80px 40px;
+           max-width: 1100px;
+           margin: 0 auto;
+       }
+        section h3 {
+           font-size: 1.8rem;
+           margin-bottom: 25px;
+           border-left: 4px solid #FF0101;
+           padding-left: 12px;
+       }
+
+
+
+       .product-list {
+           display: grid;
+           grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+           gap: 30px;
+       }
+       .product {
+           background: rgba(255,255,255,0.06);
+           padding: 20px;
+           border-radius: 12px;
+           transition: 0.2s;
+       }
+       .product:hover {
+           background: rgba(255,255,255,0.12);
+       }
+       .product img 
+       .service img { 
+           width: 70%;
+           border-radius: 10px;
+
+       .product img,
+       .service img {
+           width: 50%;
+           display: block;
+           margin: 0 auto;
+       }
+
+           
+       }
+       .product h4 {
+           margin: 15px 0 10px;
+           font-size: 1.1rem;
+       }
+       .product p {
+           opacity: 0.8;
+           font-size: 0.9rem;
+       }
+
+
+       .about-text {
+           opacity: 0.85;
+           font-size: 1rem;
+           line-height: 1.8;
+       }
+
+    /* Image unified size → same as 永眠くん */
+    .product img, .service img, .fixed-size-img {
+      width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    }
+
+    /* Hover zoom */
+    .product img:hover,
+    .service img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 1s ease;
+    }
+
+     
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+
+/*広告*/
+ .ad-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: 000000;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ad-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .ad-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .ad-section p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+
+  .ad-button {
+    background-color: white;
+    color: #ff7e5f;
+    font-weight: bold;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .ad-button:hover {
+    background-color: #ffe0d1;
+    color: #ff5a36;
+  }
+
+  /* レスポンシブ対応 */
+  @media (min-width: 768px) {
+    .ad-section {
+      flex-direction: row;
+      text-align: left;
+      padding: 60px;
+    }
+
+    .ad-section div {
+      flex: 1;
+      margin: 0 20px;
+    }
+  }
+
+/* ハンバーガーメニュー */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.menu-btn span {
+  display: block;  width: 22px;
+  height: 2px;
+  background: #000;
+  margin: 6px auto;
+  transition: 0.3s;
+}
+
+/* ナビを隠す（スマホ用） */
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  padding: 80px 20px;
+  transition: 0.4s;
+  z-index: 999;
+}
+
+nav a {
+  display: white;
+  color: #fff;
+  text-decoration: none;
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+/* 表示状態 */
+nav.open {
+  right: 0;
+}
+
+/* PCでは常に表示 */
+  nav a {
+    display: inline-block;
+    margin: 0;
+  }
+}
+/* ===== 光るハンバーガー ===== */
+.menu-btn {
+  box-shadow: 0 0 10px rgba(80,160,255,0.6);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.menu-btn:hover {
+  box-shadow: 0 0 18px rgba(120,200,255,0.9);
+}
+
+/* × に変形 */
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* span共通 */
+.menu-btn span {
+  transition: 0.35s;
+}
+
+/* ===== 背景オーバーレイ ===== */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 998;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* nav は overlay より上 */
+nav {
+  width: min(85vw, 420px);
+  right: -420px;
+}
+
+
+/* ===== PCでは大きくする ===== */
+@media (min-width: 900px) {
+  .menu-btn {
+    width: 56px;
+    height: 56px;
+    top: 24px;
+    right: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 18px rgba(120,200,255,0.8);
+  }
+
+  .menu-btn span {
+    width: 30px;
+    height: 3px;
+    margin: 8px auto;
+  }
+
+  /* ×の変形位置も調整 */
+  .menu-btn.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+
+  .menu-btn.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+}
+/* ===== ナビ文字を巨大化 ===== */
+nav.open a {
+  font-size: 1.5rem;
+}
+
+/* ===== ナビ文字：初期状態 ===== */
+nav li {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+nav.open li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+nav.open li:nth-child(1) { transition-delay: 0.05s; }
+nav.open li:nth-child(2) { transition-delay: 0.12s; }
+nav.open li:nth-child(3) { transition-delay: 0.19s; }
+nav.open li:nth-child(4) { transition-delay: 0.26s; }
+nav.open li:nth-child(5) { transition-delay: 0.33s; }
+nav.open li:nth-child(6) { transition-delay: 0.40s; }
+nav.open li:nth-child(7) { transition-delay: 0.47s; }
+nav.open li:nth-child(8) { transition-delay: 0.54s; }
+nav.open li:nth-child(9) { transition-delay: 0.61s; }
+nav.open li:nth-child(10) { transition-delay: 0.68s; }
+nav.open li:nth-child(11) { transition-delay: 0.75s; }
+
+      nav li {
+  transform: translateY(20px);
+}
+
+      nav li {
+  transition: opacity 0.4s ease,
+              transform 0.4s cubic-bezier(.2,1.4,.4,1);
+}
+  </style>
+</head>
+    
+<body>
+<!-- 背景オーバーレイ -->
+<div id="menuOverlay" class="menu-overlay"></div>
+
+    <header>
+       <h1>
+           <img src="https://item-shopping.c.yimg.jp/i/n/restt_rogo-00164" alt="ロゴ" height="50">
+           STAR TOOLS
+       </h1>
+       <nav>
+           <ul>
+           <li><a href="#notice">お知らせ</a></li>
+           <li><a href="#about">企業情報</a></li>
+           <li><a href="#rinen">営業理念</a></li>
+           <li><a href="#news">ニュース</a></li>
+           <li><a href="#message">社長メッセージ</a></li>
+           <li><a href="#product">製品</a></li>
+           <li><a href="#s">サービス</a></li> 
+           <li><a href="#info">採用情報</a></li>
+        </ul>
+           <!-- ハンバーガーボタン -->
+<button id="menuBtn" class="menu-btn">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+       </nav>
+   </header>
+
+    
+  <div class="hero">
+    <div class="fade-in">
+    <h1>日常を地味に便利に。</h1>        
+    <p>地味に役に立たない製品とサービスを製造する会社、スターツールズ</p>
+    </div>    
+  </div>
+
+
+ <section id="notice">
+       <h3 class="fade-in">お知らせ</h3>
+       <div class="about-text">
+       <p class="fade-in">    
+&emsp;2025年12月14日に我が社STAR TOOLSは超特大企業STAR CORPERATIONに買収されることが決定いたしました。STAR CORPERATIONのホームページは<a href="https://novelstar354.github.io/starcorperation">こちら</a>。買収されたあとも、「地味に役に立つ製品、サービスを作る。」という理念はかえない予定です。
+       </p>
+           </div>
+   </section>  
+
+    
+    <section id="about">
+       <h3 class="fade-in">企業情報</h3>
+       <div class="about-text">
+       <p class="fade-in">    
+          &emsp;スターツールズは「地味にしか役に立たない」という評価が最高だと信じ、皆さんの生活に地味に役に立つ製品とサービスを製造する企業です。世界は役に立つものが多すぎ、地味に役に立つが少なすぎます。わたしたちは役に立ちすぎず、役に立たなすぎないものを今日も明日もあなたにお届けします。
+
+    </p>
+           </div>
+   </section> 
+             
+ <section id="rinen">
+       <h3 class="fade-in">営業理念</h3>
+       　　<p class="about-text">
+           <p class="fade-in">  
+              &emsp;この会社は社長が突如思いついた、「地味に役に立たない製品をみんなに。」を営業理念として活動しています。</p>
+   </section>
+
+ 
+  
+
+
+     <section id="news">
+       <div class="fade-in">  
+       <h3 class="fade-in">ニュース</h3>
+       <p class="about-text"> 
+           2025.12.7<br> &emsp;創業<br>
+           2025.12.12<br>&emsp;<a href="https://novelstar354.github.io/starcorperation">スターコーポレーション</a>に買収される <br>
+           2025.12.14<br>&emsp;公式サイト設立。<br>
+           2026.12.25<br> &emsp;株価爆上がり。（３０年ぶりの快挙）<br>
+           
+           
+       </p>
+       </div>    
+     </section> 
+
+   <section id="message">
+       <h3 class="fade-in">代表メッセージ</h3>
+       <p class="about-text">
+       <p class="fade-in">
+            &emsp;「世の中は極端に役に立ちすぎるものと極端に役に立たなすぎるものがで溢れている。だから僕達は"地味に役に立つ"を作る。<br><br>&emsp;──&nbsp;社長 
+       </p>
+   </section>
+
+  <section id="product">
+    <h2 class="section-title fade-in">製品</h2>
+       <p class="fade-in">ここには、貴社の代表的な製品を掲示しています。製品・サービスサイトは<a href="https://novelstar354.github.io/product2">こちら</a>。</p>
+
+    <div class="product fade-in">
+      <img src="https://m.media-amazon.com/images/I/814bK7P5DRL._AC_UF350,350_QL50_.jpg" alt="永眠くん" class="fixed-size-img" />
+      <h4>永眠くん</h4>
+      <p>絶対に起きれない革命的目覚まし時計。人生をスヌーズしろ。</p>
+    </div>
+
+   
+      
+ </section>
+
+  <section id="s">
+    <h2 class="section-title fade-in">サービス</h2>
+       <p classs="fade-in">ここには貴社の代表的なサービスを掲示しています。製品・サービスサイトは<a href="https://novelstar354.github.io/product2">こちら</a>。</p>
+<div class="service fade-in">
+     <img src="https://png.pngtree.com/png-clipart/20230922/original/pngtree-machine-translation-software-gradient-linear-vector-icon-dictionary-talk-multilingual-vector-png-image_12828475.png" alt="">
+         <h4> ちゃんとした翻訳</h4>
+         <p> &emsp;我が社には不必要なちゃんとした翻訳です。使いたい方は<a href="https://novelstar354.github.io/they">こちら</a>。</p>
+     </div>  
+      <div class="service fade-in">
+           <img src="https://img2.lancers.jp/proposal/2545174/83951/e689cf8a1ea0ef8e87942817ef50ee10d0e2334834716541acaba5e3ecfff908/3160012_300_0.jpg?20131003053200">
+           <h4>タイピング多分上達Opoタイピング</h4>
+           <p>多分一応使える。使い方は<a href="https://novelstar354.github.io/pop">こちら</a>。</p>
+           </div>
+  
+  </section>
+
+    <section id="info">
+        <h3 class="fade-in">採用情報</h3>
+        <div class="about-text fade-in">
+            <p>
+             &emsp;あなたがもしこの会社に入社したい場合、次の条件が4つ以上満たされていれば入社できる可能性が高いです。</p>
+                <ol>
+                <br><li>12歳以上の人間である。</li>
+            　　<li>アイデアを出す事ができるまたは、アイデアについての詳しい情報を考えることができる。</li>
+                <li>スターコーポレーションに入社していない。</li>
+                <li>1週間で20時間以上働ける。</li>
+                <li>入社するなら最初はどの部署でも良い。</li>
+                </ol>
+            
+            </div>
+        </section>
+
+         
+<section id="password">
+    <h3 class="fade-in">入社希望</h3>
+
+    <form class="fade-in" action="https://script.google.com/a/macros/hongo.ed.jp/s/AKfycbyYh_JdmNZlWNNRjJ0xnIn1DfYeta0Vi5ttInos6j-YR2qSKsVI1HLuRn8BCVZEVxFG/exec" method="post">
+
+        <p>あなたの名前: 
+            <input type="text" name="yourname" placeholder="Novel Star" required>
+        </p>
+
+        <p>メールアドレス:
+            <input type="email" name="mailaddress" placeholder="novelstar@gmail.com" required>
+        </p>
+
+        <p>パスワード:
+            <input type="password" name="password" required>
+        </p>
+        <p>入りたい部署:
+            <input type="text" name="yourname" placeholder="情報部門" required>
+        </p>
+
+        <p>質問や備考:
+            <input type="text" name="bikoubiko" placeholder="ない場合はなしと書いてください。" required>
+        </p>
+
+        <p>
+            <input type="submit" name="submit" value="送信">
+        </p>
+
+    </form>
+</section>
+
+        
+
+        
+<section id="idea">
+    <h3 class="fade-in">アイデア募集</h3>
+
+    <form class="fade-in" action="https://script.google.com/a/macros/hongo.ed.jp/s/AKfycbwgSI2ddjbBFsNIFAo8qWoURlrGHN6HHgR4rFhq-Jp0vzHtHGzgQQ7xh3HLRRyk__n_/exec" method="post">
+
+        <h4>もしかしたら採用するかもしれません</h4>
+
+        <p>
+            あなたの名前:<br>
+            <input type="text" name="yourname" placeholder="Novel Star" required>
+        </p>
+
+        <p>
+            商品またはサービスの名前:<br>
+            <input type="text" name="idea" placeholder="例：永眠くん" required>
+        </p>
+
+        <p>
+            商品の効果や説明:<br>
+            <input type="text" name="explain" placeholder="絶対に起きれない" required>
+        </p>
+
+        <p>
+            <input type="submit" name="submit" value="送信">
+        </p>
+
+    </form>
+</section>
+
+
+
+
+
+<button id="backToTop">▲</button>
+
+
+
+  <footer class="fade-in">
+    © 2025 Star Corporation. All Rights Reserved.
+  </footer> 
+
+  <script>
+    /* Scroll animation */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add("show");   // フェードイン
+        } else {
+            backToTop.classList.remove("show"); // フェードアウト
+        }
+    });
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+const menuBtn = document.getElementById("menuBtn");
+  const nav = document.querySelector("nav");
+  const overlay = document.getElementById("menuOverlay");
+
+  function openMenu() {
+    nav.classList.add("open");
+    menuBtn.classList.add("active");
+    overlay.classList.add("show");
+  }
+
+  function closeMenu() {
+    nav.classList.remove("open");
+    menuBtn.classList.remove("active");
+    overlay.classList.remove("show");
+  }
+
+  menuBtn.addEventListener("click", () => {
+    nav.classList.contains("open") ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener("click", closeMenu);
+
+  // メニューを押したら閉じる
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
+
+   
+</body>
+</html>
