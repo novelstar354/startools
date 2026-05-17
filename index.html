@@ -296,17 +296,180 @@ nav{
 #loader{
   position:fixed;
   inset:0;
-  background:#050816;
+  z-index:99999;
+
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:99999;
-  transition:.6s;
+
+  background:
+    radial-gradient(circle at top,#163a74 0%,transparent 35%),
+    radial-gradient(circle at bottom,#102840 0%,transparent 35%),
+    #050816;
+
+  overflow:hidden;
+
+  transition:
+    opacity .7s ease,
+    visibility .7s ease;
 }
 
-.loader-logo{
-  font-size:4rem;
-  animation:pulse 1.2s infinite;
+.loader-box{
+  text-align:center;
+  animation:loaderFade 1s ease;
+}
+
+.loader-star{
+  font-size:5rem;
+  margin-bottom:20px;
+
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent2)
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  filter:drop-shadow(0 0 18px rgba(78,161,255,.55));
+
+  animation:
+    starFloat 2.4s ease-in-out infinite,
+    starSpin 7s linear infinite;
+}
+
+.loader-text{
+  display:flex;
+  gap:4px;
+  justify-content:center;
+
+  font-family:'Orbitron',sans-serif;
+  font-size:2rem;
+  font-weight:700;
+
+  margin-bottom:24px;
+}
+
+.loader-text span{
+  opacity:0;
+  transform:translateY(20px);
+
+  animation:letterIn .5s forwards;
+}
+
+.loader-text span:nth-child(1){animation-delay:.05s;}
+.loader-text span:nth-child(2){animation-delay:.1s;}
+.loader-text span:nth-child(3){animation-delay:.15s;}
+.loader-text span:nth-child(4){animation-delay:.2s;}
+.loader-text span:nth-child(5){animation-delay:.25s;}
+.loader-text span:nth-child(6){animation-delay:.3s;}
+.loader-text span:nth-child(7){animation-delay:.35s;}
+.loader-text span:nth-child(8){animation-delay:.4s;}
+.loader-text span:nth-child(9){animation-delay:.45s;}
+
+.loader-bar{
+  width:280px;
+  height:10px;
+
+  margin:auto;
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    inset 0 0 12px rgba(0,0,0,.4);
+}
+
+.loader-progress{
+  height:100%;
+  width:0%;
+
+  border-radius:999px;
+
+  background:linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent2)
+  );
+
+  box-shadow:
+    0 0 18px rgba(78,161,255,.5);
+
+  animation:loadingBar 2s ease forwards;
+}
+
+.loader-sub{
+  margin-top:18px;
+
+  color:var(--sub);
+
+  font-size:.95rem;
+
+  letter-spacing:.08em;
+
+  opacity:.85;
+
+  animation:pulseText 1.6s infinite;
+}
+
+@keyframes loadingBar{
+  from{
+    width:0%;
+  }
+  to{
+    width:100%;
+  }
+}
+
+@keyframes letterIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes starFloat{
+  0%,100%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+@keyframes starSpin{
+  from{
+    rotate:0deg;
+  }
+  to{
+    rotate:360deg;
+  }
+}
+
+@keyframes pulseText{
+  0%,100%{
+    opacity:.55;
+  }
+  50%{
+    opacity:1;
+  }
+}
+
+@keyframes loaderFade{
+  from{
+    opacity:0;
+    transform:scale(1.05);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 }
 
 @keyframes pulse{
@@ -603,8 +766,37 @@ footer{
 </style>
 </head>
 <body>
+<!--<div id="loader">
+  <div class="loader-logo"><p>&emsp;&emsp;★<br>STARTOOLS</p></div>
+</div>-->
 <div id="loader">
-  <div class="loader-logo">★</div>
+
+  <div class="loader-box">
+
+    <div class="loader-star">★</div>
+
+    <div class="loader-text">
+      <span>S</span>
+      <span>T</span>
+      <span>A</span>
+      <span>R</span>
+      <span>T</span>
+      <span>O</span>
+      <span>O</span>
+      <span>L</span>
+      <span>S</span>
+    </div>
+
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
+    </div>
+
+    <p class="loader-sub">
+      微妙に便利を読み込み中...
+    </p>
+
+  </div>
+
 </div>
 <header>
   <div class="nav">
@@ -946,9 +1138,8 @@ footer{
         <p>
             <input type="submit" name="submit" value="送信">
         </p>
-
-    </form>
-</section>
+</form>
+    </section>
 <footer>
   © 2026 StarTools Inc. | 微妙な便利を、宇宙規模へ。
 </footer>
@@ -964,9 +1155,9 @@ window.addEventListener('load',()=>{
 
     setTimeout(()=>{
       loader.remove();
-    },600);
+    },700);
 
-  },900);
+  },3200);
 });
 const floatingMenuBtn=document.getElementById('floatingMenuBtn');
 function toggleMenu(){
@@ -1082,6 +1273,7 @@ const observer=new IntersectionObserver(entries=>{
         easing:'ease-out',
         fill:'forwards'
       });
+        obeserver.unobserve(entry.target);
     }
   });
 },{threshold:.15});
