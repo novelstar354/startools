@@ -1226,7 +1226,7 @@ window.addEventListener('scroll',()=>{
   }
 });
 
-const counters = [
+/*const counters = [
   {id:'num1',target:284981},
   {id:'num2',target:8941231},
   {id:'num3',target:999999}
@@ -1252,7 +1252,78 @@ counters.forEach(counter=>{
 
   update();
 });
+*/
+// 実績カウント（画面に入ったら開始 & ランダム増加）
+// 実績カウント
+const counters = [
+  {
+    id:'num1',
+    target:Math.floor(Math.random()*500000)+100000
+  },
+  {
+    id:'num2',
+    target:Math.floor(Math.random()*10000000)+1000000
+  },
+  {
+    id:'num3',
+    target:Math.floor(Math.random()*3000000)+500000
+  }
+];
 
+const statsSection = document.querySelector('#stats');
+
+let counterStarted = false;
+
+const counterObserver = new IntersectionObserver((entries)=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting && !counterStarted){
+
+      counterStarted = true;
+
+      counters.forEach(counter=>{
+
+        const el = document.getElementById(counter.id);
+
+        let current = 0;
+
+        const timer = setInterval(()=>{
+
+          // 残りに応じて増加量変化
+          const remain = counter.target - current;
+
+          const add =
+            Math.floor(Math.random() * (remain / 8)) + 1;
+
+          current += add;
+
+          // 超えたら終了
+          if(current >= counter.target){
+
+            current = counter.target;
+
+            clearInterval(timer);
+
+          }
+
+          el.textContent = current.toLocaleString();
+
+        },40);
+
+      });
+
+    }
+
+  });
+
+},{
+  threshold:0.35
+});
+
+counterObserver.observe(statsSection);
+
+    
 // スクロール時アニメーション
 const cards=document.querySelectorAll('.card,.review,.stat');
 
@@ -1273,7 +1344,7 @@ const observer=new IntersectionObserver(entries=>{
         easing:'ease-out',
         fill:'forwards'
       });
-        obeserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
     }
   });
 },{threshold:.15});
@@ -1380,6 +1451,7 @@ window.addEventListener('click',e=>{
   }
 });
 </script>
+
 
 
 </body>
